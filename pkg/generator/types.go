@@ -12,4 +12,5 @@ type Definition struct {
 type Property struct {
 	Type   string `json:"type"`
 	Format string `json:"format,omitempty"`
+	Ref    string `json:"$ref,omitempty"`
 }
