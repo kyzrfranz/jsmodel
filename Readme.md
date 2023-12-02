@@ -161,56 +161,57 @@ and
 
 #### Address.js
 ```javascript
-export class Address {
+import {Address} from "./Address"
+export class Person {
   constructor() {
-    this._StreetAddress = "";
-    this._City = "";
-    this._State = "";
-    this._PostalCode = "";
+    this._FirstName = "";
+    this._LastName = "";
+    this._Age = "";
+    this._Address = "";
   }
 
   static fromJson(json) {
-    let address = new Address();
-    address.StreetAddress = json.streetAddress;
-    address.City = json.city;
-    address.State = json.state;
-    address.PostalCode = json.postalCode;
-    return address;
+    let person = new Person();
+    person.Address = Address.fromJson(json.address);
+    person.FirstName = json.firstName;
+    person.LastName = json.lastName;
+    person.Age = json.age;
+    person.Email = json.email;
+    return person;
   }
 
-  get StreetAddress() {
-    return this._StreetAddress;
+  get FirstName() {
+    return this._FirstName;
   }
 
-  set StreetAddress(value) {
-    this._StreetAddress = value;
+  set FirstName(value) {
+    this._FirstName = value;
   }
 
-  get City() {
-    return this._City;
+  get LastName() {
+    return this._LastName;
   }
 
-  set City(value) {
-    this._City = value;
+  set LastName(value) {
+    this._LastName = value;
   }
 
-  get State() {
-    return this._State;
+  get Age() {
+    return this._Age;
   }
 
-  set State(value) {
-    this._State = value;
+  set Age(value) {
+    this._Age = value;
   }
 
-  get PostalCode() {
-    return this._PostalCode;
+  get Address() {
+    return this._Address;
   }
 
-  set PostalCode(value) {
-    this._PostalCode = value;
+  set Address(value) {
+    this._Address = value;
   }
 }
-
 ```
 
 This command will read the JSON Schema from `./schemas/customer.json` and generate JavaScript classes in the `./output` directory.
